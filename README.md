@@ -18,7 +18,8 @@ make install
 ```
 
 The dependencies are version pinned in `requirements.txt` to ensure
-reproducible environments.
+reproducible environments. `stable-baselines3` is installed without the
+optional Atari extras to avoid packages that do not support Python 3.12.
 
 ### Environment Variables
 
