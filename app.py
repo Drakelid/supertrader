@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 from supertrader.trading.engine import TradingEngine, Mode
+from supertrader.trading.order import RiskManager
 
 st.title("Supertrader Dashboard")
 
@@ -13,7 +14,8 @@ symbols = st.sidebar.text_input("Symbols", value="BTCUSDT").split(",")
 run = st.button("Start")
 
 if run:
-    engine = TradingEngine(api_key, api_secret, mode)
+    rm = RiskManager.from_env()
+    engine = TradingEngine(api_key, api_secret, mode, risk_manager=rm)
     st.write("Engine starting in", mode.value, "mode")
     st.write("Streaming", symbols)
     st.session_state['engine'] = engine

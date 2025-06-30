@@ -1,11 +1,17 @@
+"""Helpers for fetching market data from Binance."""
+
 import pandas as pd
 from binance import Client
 
 class HistoricalData:
-    def __init__(self, api_key: str, api_secret: str):
+    """Fetch historical candlestick data."""
+
+    def __init__(self, api_key: str, api_secret: str) -> None:
         self.client = Client(api_key, api_secret)
 
     def get_historical_klines(self, symbol: str, interval: str, start: str, end: str) -> pd.DataFrame:
+        """Return a DataFrame of historical klines."""
+
         klines = self.client.get_historical_klines(symbol, interval, start, end)
         df = pd.DataFrame(klines, columns=[
             "open_time", "open", "high", "low", "close", "volume",

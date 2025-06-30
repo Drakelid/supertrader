@@ -2,6 +2,9 @@
 
 Supertrader is an autonomous cryptocurrency trading system for Binance spot markets. It supports live, paper and backtest modes and includes a Streamlit dashboard for monitoring and control.
 
+> **Disclaimer**
+> This project is provided for educational purposes only and does **not** constitute financial advice. Use at your own risk.
+
 ## Setup
 
 ### Requirements
@@ -14,6 +17,9 @@ Supertrader is an autonomous cryptocurrency trading system for Binance spot mark
 make install
 ```
 
+The dependencies are version pinned in `requirements.txt` to ensure
+reproducible environments.
+
 ### Environment Variables
 
 | Variable | Description |
@@ -21,6 +27,7 @@ make install
 | `BINANCE_API_KEY` | Binance API key |
 | `BINANCE_API_SECRET` | Binance API secret |
 | `DATABASE_URL` | PostgreSQL connection string |
+| `MAX_RISK_PCT` | Fraction of account balance allowed per trade (0.0-1.0) |
 
 ### Running
 
