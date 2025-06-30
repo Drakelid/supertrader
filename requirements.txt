@@ -1,0 +1,9 @@
+python-binance
+pandas
+numpy
+ta
+scikit-learn
+stable-baselines3[extra]
+streamlit
+SQLAlchemy
+psycopg2-binary

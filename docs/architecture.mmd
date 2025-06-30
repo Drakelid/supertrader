@@ -1,0 +1,20 @@
+graph TD
+    subgraph User Interface
+        A[Streamlit Dashboard]
+    end
+    subgraph Core Services
+        B[Trading Engine]
+        C[RL Agent]
+        D[Data Collector]
+    end
+    subgraph Infrastructure
+        E[PostgreSQL]
+        F[Binance API]
+    end
+    A -->|Control & Monitoring| B
+    B --> F
+    B --> C
+    B --> E
+    C --> E
+    D --> E
+    D --> F
