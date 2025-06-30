@@ -6,7 +6,7 @@ from typing import List
 
 from binance import AsyncClient, BinanceSocketManager
 
-from .order import Order
+from .order import Order, OrderType
 
 class Mode(Enum):
     LIVE = "live"
@@ -46,7 +46,7 @@ class TradingEngine:
             raise RuntimeError("Client not connected")
         if self.risk_manager and not self.risk_manager.check_order(0, order):
             raise RuntimeError("Order violates risk limits")
-        if order.order_type == order.order_type.MARKET:
+        if order.order_type == OrderType.MARKET:
             await self.client.create_order(symbol=order.symbol, side=order.side.value,
                                            type=order.order_type.value, quantity=order.quantity)
         else:
